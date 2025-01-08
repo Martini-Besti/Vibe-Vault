@@ -48,11 +48,11 @@ const page = () => {
   return (
     <div>
       <h1 className="text-3xl text-center font-bold mt-5 text-gray-500">
-        Add todo
+        Upload Your Best Photo
       </h1>
       {isSuccess && (
         <div className="bg-blue-100 text-blue-700 p-4">
-          Todo added successfully!
+          Photo added successfully!
         </div>
       )}
       {isError && (
@@ -61,7 +61,7 @@ const page = () => {
       <form onSubmit={handleSubmit}>
         <div className="w-1/3">
           <label className="block text-gray-500 font-bold pr-4" htmlFor="title">
-            Todo
+            Enter User ID
           </label>
         </div>
         <div className="w-2/3">
@@ -69,7 +69,7 @@ const page = () => {
             name="title"
             id="title"
             type="text"
-            placeholder="Enter todo"
+            placeholder="@yourUserID"
             value={todoObject.title}
             onChange={handleInputChange}
             className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700"
@@ -80,7 +80,7 @@ const page = () => {
             className="block text-gray-500 font-bold pr-4"
             htmlFor="description"
           >
-            Description
+            Caption
           </label>
         </div>
         <div className="w-2/3">
@@ -88,7 +88,7 @@ const page = () => {
             name="description"
             type="text"
             id="description"
-            placeholder="Enter description"
+            placeholder="Enter Your Vibe"
             value={todoObject.description}
             onChange={handleInputChange}
             className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700"
@@ -103,10 +103,10 @@ const page = () => {
           />
         </div>
         <button
-          className="bg-blue-500 text-white p-4 rounded-xl mt-5"
+          className="bg-[#011936] text-[#F4FFFD] p-4 rounded-xl mt-5"
           type="submit"
         >
-          Save todo
+          Upload
         </button>
       </form>
     </div>
