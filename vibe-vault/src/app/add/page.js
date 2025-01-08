@@ -3,6 +3,7 @@ import { useState } from "react";
 const page = () => {
   const [todoObject, setTodoObject] = useState({
     title: "",
+    photo: "",
     description: "",
     completed: false,
   });
@@ -26,7 +27,7 @@ const page = () => {
     e.preventDefault();
     const localStorageTodos = localStorage.getItem("todos");
     // check the state of the todo to ensure we only get correct data from the form. (not empty data)
-    if (!todoObject.title || !todoObject.description) {
+    if (!todoObject.title || !todoObject.description || !todoObject.photo) {
       setIsError(true);
       return;
     }
@@ -71,6 +72,22 @@ const page = () => {
             type="text"
             placeholder="@yourUserID"
             value={todoObject.title}
+            onChange={handleInputChange}
+            className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700"
+          />
+        </div>
+        <div className="w-1/3">
+          <label className="block text-gray-500 font-bold pr-4" htmlFor="photo">
+            Upload Photo
+          </label>
+        </div>
+        <div className="w-2/3">
+          <input
+            name="photo"
+            id="photo"
+            type="text"
+            placeholder="Enter Photo URL"
+            value={todoObject.photo}
             onChange={handleInputChange}
             className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700"
           />
