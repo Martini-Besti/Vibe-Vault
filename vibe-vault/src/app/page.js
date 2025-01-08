@@ -51,6 +51,7 @@ setTodos(newTodos);
           <TodoItem
             key={index}
             title={todo.title}
+            photo={todo.photo}
             description={todo.description}
             completed={todo.completed}
             handleEdit={() => handleChange(todo.id)}
