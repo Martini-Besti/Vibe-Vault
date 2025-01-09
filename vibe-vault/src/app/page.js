@@ -9,7 +9,7 @@ export default function Home() {
   // Handle 'like' button clicks for a specific photo
   const handleLikeButtonClick = (title) => {
     console.log(`Liked ${title}`);
-    // You can modify state or take other actions based on the like
+
   };
 
   useEffect(() => {
@@ -38,9 +38,12 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col gap-16">
+    <div className="flex flex-col gap-16 items-center pt-4 ">
       {uploads.map((upload, index) => (
-        <div key={upload.id} className="flex flex-col items-center">
+        <div
+          key={upload.id}
+          className="flex flex-col items-center max-w-[800px] max-h-[800px]"
+        >
           <PhotoUpload
             title={upload.title}
             photo={upload.photo}
@@ -48,7 +51,7 @@ export default function Home() {
             completed={upload.completed}
             handleEdit={() => handleChange(upload.id)}
           />
-          {/* Like button and counter below each photo */}
+          
           <TallyCounter
             key={upload.id}
             title={upload.title}
