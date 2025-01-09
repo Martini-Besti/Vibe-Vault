@@ -1,5 +1,5 @@
 "use client";
-import TodoItem from "@/components/TodoItem";
+import PhotoUpload from "@/components/PhotoUpload";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -48,7 +48,7 @@ setTodos(newTodos);
     <div className="flex flex-col gap-16">
       {todos.map((todo, index) => {
         return (
-          <TodoItem
+          <PhotoUpload
             key={index}
             title={todo.title}
             photo={todo.photo}
