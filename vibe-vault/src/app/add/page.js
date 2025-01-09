@@ -116,15 +116,6 @@ const page = () => {
           </div>
         </div>
 
-        <div className="w-3/3">
-          <input
-            className="mr-2"
-            type="checkbox"
-            onChange={handleInputChange}
-            name="completed"
-            id="completed"
-          />
-        </div>
         <button
           className="bg-[#011936] text-[#F4FFFD] p-4 rounded-xl mt-5"
           type="submit"

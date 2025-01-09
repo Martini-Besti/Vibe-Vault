@@ -12,14 +12,14 @@ const Nav = () => {
             className="h-20 mr-3"
           />
         </Link>
-        <div className="text-[#F4FFFD] text-xl">Vibe Vault</div>
+        <div className="text-[#F4FFFD] text-4xl">Vibe Vault</div>
       </div>
 
       <div className="w-full flex items-center justify-end">
-        <Link href="/add" className="text-[#F4FFFD] mr-6">
+        <Link href="/add" className="text-[#F4FFFD] mr-6 text-2xl">
           Add Photo
         </Link>
-        <Link href="/" className="text-[#F4FFFD]">
+        <Link href="/" className="text-[#F4FFFD] text-2xl">
           My Vault
         </Link>
       </div>
