@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TodoItem = ({title, description, completed, handleEdit, photo}) => {
+const PhotoUpload = ({title, description, completed, handleEdit, photo}) => {
   return (
     <div className={`shadow-lg rounded-lg p-10 text-black ${
         completed ? "bg-green-300" : "bg-red-300"
@@ -15,4 +15,4 @@ const TodoItem = ({title, description, completed, handleEdit, photo}) => {
   )
 }
 
-export default TodoItem
+export default PhotoUpload
