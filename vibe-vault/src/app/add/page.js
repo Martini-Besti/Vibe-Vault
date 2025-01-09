@@ -40,10 +40,10 @@ const page = () => {
     if (localStorageTodos) {
       localStorage.setItem(
         "todos",
-        JSON.stringify([...JSON.parse(localStorageTodos), { ...todoWithId }])
+        JSON.stringify([...JSON.parse(localStorageTodos), {...todoWithId}])
       );
     } else {
-      localStorage.setItem("todos", JSON.stringify([todoWithId]));
+        localStorage.setItem("todos", JSON.stringify([todoWithId]))
     }
   };
   return (
@@ -94,13 +94,13 @@ const page = () => {
         </div>
         <div className="w-1/3">
           <label
-            className="block text-gray-500 font-bold pr-4 resize-y"
+            className="block text-gray-500 font-bold pr-4"
             htmlFor="description"
           >
             Caption
           </label>
         </div>
-        <div className="w-2/3 resize-y">
+        <div className="w-2/3">
           <input
             name="description"
             type="text"
@@ -108,21 +108,15 @@ const page = () => {
             placeholder="Enter Your Vibe"
             value={todoObject.description}
             onChange={handleInputChange}
-            className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700  "
-            maxLength="250"
+            className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700"
           />
-          <div className="text-gray-500 text-sm mt-1">
-            {todoObject.description.length}/250characters
-          </div>
         </div>
-
         <div className="w-3/3">
           <input
             className="mr-2"
             type="checkbox"
             onChange={handleInputChange}
-            name="completed"
-            id="completed"
+            name="completed" id="completed"
           />
         </div>
         <button
