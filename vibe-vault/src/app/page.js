@@ -1,22 +1,16 @@
 "use client";
 import PhotoUpload from "@/components/PhotoUpload";
+import TallyCounter from "@/components/TallyCounter";
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  // todos is the value
-  // setTodos is the function to update the value
-
   const [uploads, setUploads] = useState([]);
 
-  // localStorage
-  // JSON = Javascript Object Notation (A string representation of JS code such as an object or an array)
-
-  // use effect
-
-  // use effect is a hook that runs a block of code when the component / page loads
-
-  // local storage is like a database except it is in the browser
-  // do not store sensitive information in local storage
+  // Handle 'like' button clicks for a specific photo
+  const handleLikeButtonClick = (title) => {
+    console.log(`Liked ${title}`);
+    // You can modify state or take other actions based on the like
+  };
 
   useEffect(() => {
     try {
@@ -29,35 +23,39 @@ export default function Home() {
     }
   }, []);
 
-
-const handleChange = (id) => {
-const newUploads = uploads.map((upload) => {
-if (upload.id === id) {
-  return {
-    ...upload, 
-    completed: !upload.completed
-  }
-}
-return upload;
-})
-localStorage.setItem("uploads", JSON.stringify(newUploads));
-setUploads(newUploads);
-}
+  const handleChange = (id) => {
+    const newUploads = uploads.map((upload) => {
+      if (upload.id === id) {
+        return {
+          ...upload,
+          completed: !upload.completed,
+        };
+      }
+      return upload;
+    });
+    localStorage.setItem("uploads", JSON.stringify(newUploads));
+    setUploads(newUploads);
+  };
 
   return (
     <div className="flex flex-col gap-16">
-      {uploads.map((upload, index) => {
-        return (
+      {uploads.map((upload, index) => (
+        <div key={upload.id} className="flex flex-col items-center">
           <PhotoUpload
-            key={index}
             title={upload.title}
             photo={upload.photo}
             description={upload.description}
             completed={upload.completed}
             handleEdit={() => handleChange(upload.id)}
           />
-        );
-      })}
+          {/* Like button and counter below each photo */}
+          <TallyCounter
+            key={upload.id}
+            title={upload.title}
+            updateStateInParent={handleLikeButtonClick} // Pass handler function
+          />
+        </div>
+      ))}
     </div>
   );
 }
