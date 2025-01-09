@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 const page = () => {
-  const [todoObject, setTodoObject] = useState({
+  const [uploadObject, setUploadObject] = useState({
     title: "",
     photo: "",
     description: "",
@@ -12,38 +12,38 @@ const page = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === "completed") {
-      setTodoObject({
-        ...todoObject,
+      setUploadObject({
+        ...uploadObject,
         [name]: e.target.checked,
       });
       return;
     }
-    setTodoObject({
-      ...todoObject,
+    setUploadObject({
+      ...uploadObject,
       [name]: value,
     });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const localStorageTodos = localStorage.getItem("todos");
+    const localStorageUploads = localStorage.getItem("uploads");
     // check the state of the todo to ensure we only get correct data from the form. (not empty data)
-    if (!todoObject.title || !todoObject.description || !todoObject.photo) {
+    if (!uploadObject.title || !uploadObject.description || !uploadObject.photo) {
       setIsError(true);
       return;
     }
     // ternery operator is a shorthand syntax for an if statement
-    const todoWithId = {
-      ...todoObject,
-      id: localStorageTodos ? JSON.parse(localStorageTodos).length + 1 : 0,
+    const uploadWithId = {
+      ...uploadObject,
+      id: localStorageUploads ? JSON.parse(localStorageUploads).length + 1 : 0,
     };
     // we are setting an item in local storage to be the value of whatever it was before but with the new todo item added
-    if (localStorageTodos) {
+    if (localStorageUploads) {
       localStorage.setItem(
-        "todos",
-        JSON.stringify([...JSON.parse(localStorageTodos), { ...todoWithId }])
+        "uploads",
+        JSON.stringify([...JSON.parse(localStorageUploads), { ...uploadWithId }])
       );
     } else {
-      localStorage.setItem("todos", JSON.stringify([todoWithId]));
+      localStorage.setItem("uploads", JSON.stringify([uploadWithId]));
     }
   };
   return (
@@ -71,7 +71,7 @@ const page = () => {
             id="title"
             type="text"
             placeholder="@yourUserID"
-            value={todoObject.title}
+            value={uploadObject.title}
             onChange={handleInputChange}
             className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700"
           />
@@ -87,7 +87,7 @@ const page = () => {
             id="photo"
             type="text"
             placeholder="Enter Photo URL"
-            value={todoObject.photo}
+            value={uploadObject.photo}
             onChange={handleInputChange}
             className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700"
           />
@@ -106,13 +106,13 @@ const page = () => {
             type="text"
             id="description"
             placeholder="Enter Your Vibe"
-            value={todoObject.description}
+            value={uploadObject.description}
             onChange={handleInputChange}
             className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700  "
             maxLength="250"
           />
           <div className="text-gray-500 text-sm mt-1">
-            {todoObject.description.length}/250characters
+            {uploadObject.description.length}/250characters
           </div>
         </div>
 

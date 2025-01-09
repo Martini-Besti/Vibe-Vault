@@ -6,7 +6,7 @@ export default function Home() {
   // todos is the value
   // setTodos is the function to update the value
 
-  const [todos, setTodos] = useState([]);
+  const [uploads, setUploads] = useState([]);
 
   // localStorage
   // JSON = Javascript Object Notation (A string representation of JS code such as an object or an array)
@@ -20,9 +20,9 @@ export default function Home() {
 
   useEffect(() => {
     try {
-      const storedTodos = localStorage.getItem("todos");
-      if (storedTodos) {
-        setTodos(JSON.parse(storedTodos));
+      const storedUploads = localStorage.getItem("uploads");
+      if (storedUploads) {
+        setUploads(JSON.parse(storedUploads));
       }
     } catch (error) {
       console.log("There was an error");
@@ -31,30 +31,30 @@ export default function Home() {
 
 
 const handleChange = (id) => {
-const newTodos = todos.map((todo) => {
-if (todo.id === id) {
+const newUploads = uploads.map((upload) => {
+if (upload.id === id) {
   return {
-    ...todo, 
-    completed: !todo.completed
+    ...upload, 
+    completed: !upload.completed
   }
 }
-return todo;
+return upload;
 })
-localStorage.setItem("todos", JSON.stringify(newTodos));
-setTodos(newTodos);
+localStorage.setItem("uploads", JSON.stringify(newUploads));
+setUploads(newUploads);
 }
 
   return (
     <div className="flex flex-col gap-16">
-      {todos.map((todo, index) => {
+      {uploads.map((upload, index) => {
         return (
           <PhotoUpload
             key={index}
-            title={todo.title}
-            photo={todo.photo}
-            description={todo.description}
-            completed={todo.completed}
-            handleEdit={() => handleChange(todo.id)}
+            title={upload.title}
+            photo={upload.photo}
+            description={upload.description}
+            completed={upload.completed}
+            handleEdit={() => handleChange(upload.id)}
           />
         );
       })}
