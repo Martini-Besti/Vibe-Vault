@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 // props is an object
-const TallyCounter = ({ title, updateStateInParent, id, likeCount }) => {
+const LikeCounter = ({ title, updateStateInParent, id, likeCount }) => {
   const [count, setCount] = useState(likeCount);
 
   useEffect(() => {
@@ -42,4 +42,4 @@ const TallyCounter = ({ title, updateStateInParent, id, likeCount }) => {
   );
 };
 
-export default TallyCounter;
+export default LikeCounter;
