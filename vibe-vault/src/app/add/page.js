@@ -60,7 +60,7 @@ const page = () => {
       {isError && (
         <div className="bg-red-100 text-white p-4">An error occurred!</div>
       )}
-      <div className="ml-6">
+      <div className="text-center">
       <form onSubmit={handleSubmit}>
         <div className="w-1/3">
           <label className="block text-gray-500 font-bold pr-4" htmlFor="title">

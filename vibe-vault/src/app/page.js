@@ -1,6 +1,6 @@
 "use client";
 import PhotoUpload from "@/components/PhotoUpload";
-import TallyCounter from "@/components/TallyCounter";
+import LikeCounter from "@/components/LikeCounter";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -76,7 +76,7 @@ export default function Home() {
             handleEdit={() => handleChange(upload.id)}
           />
           
-          <TallyCounter
+          <LikeCounter
             key={upload.id}
             title={upload.title}
             updateStateInParent={(count, id) => handleLikeButtonClick(count, id)} // Pass handler function
