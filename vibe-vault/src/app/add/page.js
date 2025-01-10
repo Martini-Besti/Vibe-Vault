@@ -84,62 +84,62 @@ const page = () => {
       {isError && (
         <div className="bg-red-100 text-white p-4">An error occurred! Please fill all fields.</div>
       )}
-      <div className="text-center">
-        <form onSubmit={handleSubmit}>
-          <div className="w-1/3">
-            <label className="block text-gray-500 font-bold pr-4" htmlFor="title">
-              Enter User ID
-            </label>
-          </div>
-          <div className="w-2/3">
-            <input
-              name="title"
-              id="title"
-              type="text"
-              placeholder="@yourUserID"
-              value={uploadObject.title}
-              onChange={handleInputChange}
-              className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700"
-            />
-          </div>
-          <div className="w-1/3">
-            <label className="block text-gray-500 font-bold pr-4" htmlFor="photo">
-              Upload Photo
-            </label>
-          </div>
-          <div className="w-2/3">
-            <input
-              name="photo"
-              id="photo"
-              type="text"
-              placeholder="Enter Photo URL"
-              value={uploadObject.photo}
-              onChange={handleInputChange}
-              className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700"
-            />
-          </div>
-          <div className="w-1/3">
-            <label
-              className="block text-gray-500 font-bold pr-4 resize-y"
-              htmlFor="description"
-            >
-              Caption
-            </label>
-          </div>
-          <div className="w-2/3 resize-y">
-            <input
-              name="description"
-              type="text"
-              id="description"
-              placeholder="Enter Your Vibe"
-              value={uploadObject.description}
-              onChange={handleInputChange}
-              className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700"
-              maxLength="250"
-            />
-            <div className="text-gray-500 text-sm mt-1">
-              {uploadObject.description.length}/250 characters
-            </div>
+
+      <div className="flex flex-col items-center mt-6">
+      <form onSubmit={handleSubmit}>
+        <div className="w-1/3">
+          <label className="block text-gray-500 font-bold pr-4" htmlFor="title">
+            Enter User ID
+          </label>
+        </div>
+        <div className="w-2/3">
+          <input
+            name="title"
+            id="title"
+            type="text"
+            placeholder="@yourUserID"
+            value={uploadObject.title}
+            onChange={handleInputChange}
+            className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700"
+          />
+        </div>
+        <div className="w-1/3">
+          <label className="block text-gray-500 font-bold pr-4" htmlFor="photo">
+            Upload Photo
+          </label>
+        </div>
+        <div className="w-2/3">
+          <input
+            name="photo"
+            id="photo"
+            type="text"
+            placeholder="Enter Photo URL"
+            value={uploadObject.photo}
+            onChange={handleInputChange}
+            className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700"
+          />
+        </div>
+        <div className="w-1/3">
+          <label
+            className="block text-gray-500 font-bold pr-4 resize-y"
+            htmlFor="description"
+          >
+            Caption
+          </label>
+        </div>
+        <div className="w-2/3 resize-y">
+          <input
+            name="description"
+            type="text"
+            id="description"
+            placeholder="Enter Your Vibe"
+            value={uploadObject.description}
+            onChange={handleInputChange}
+            className="bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700  "
+            maxLength="250"
+          />
+          <div className="text-gray-500 text-sm mt-1">
+            {uploadObject.description.length}/250characters
           </div>
 
           <button
