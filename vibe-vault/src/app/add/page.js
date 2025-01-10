@@ -35,6 +35,7 @@ const page = () => {
     const uploadWithId = {
       ...uploadObject,
       id: localStorageUploads ? JSON.parse(localStorageUploads).length + 1 : 0,
+      likeCount: 0
     };
     // we are setting an item in local storage to be the value of whatever it was before but with the new todo item added
     if (localStorageUploads) {

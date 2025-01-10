@@ -1,13 +1,21 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // props is an object
-const TallyCounter = ({ title, updateStateInParent }) => {
-  const [count, setCount] = useState(0);
+const TallyCounter = ({ title, updateStateInParent, id, likeCount }) => {
+  const [count, setCount] = useState(likeCount);
+
+  useEffect(() => {
+    console.log(likeCount)
+  }, [likeCount])
 
   const buttonHandler = () => {
     setCount(count + 1);
   };
+
+  useEffect(() => {
+    updateStateInParent(count, id)
+  }, [count])
 
   const reset = () => {
     setCount(0);
