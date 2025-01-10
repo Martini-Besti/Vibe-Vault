@@ -7,8 +7,32 @@ export default function Home() {
   const [uploads, setUploads] = useState([]);
 
   // Handle 'like' button clicks for a specific photo
-  const handleLikeButtonClick = (title) => {
-    console.log(`Liked ${title}`);
+  const handleLikeButtonClick = (count, id) => {
+    // get the items from ls 
+    console.log(id)
+    const items = localStorage.getItem("uploads")
+    console.log(items)
+    if (!items) {
+      return;
+    }
+    // parse the items 
+    const itemsParsed = JSON.parse(items)
+
+    // loop over the items to find the post that has an id which matches the one
+    // we pass to the function 
+
+    itemsParsed.forEach(item => {
+      // if we find a match, we set the like count of that item to be
+      // the likecount we pass to this function 
+      if (item.id === id) {
+        item.likeCount = count
+      }
+    })
+
+    // save it back to local storage
+
+    const itemsToSave = JSON.stringify(itemsParsed);
+    localStorage.setItem("uploads", itemsToSave);
 
   };
 
@@ -55,7 +79,9 @@ export default function Home() {
           <TallyCounter
             key={upload.id}
             title={upload.title}
-            updateStateInParent={handleLikeButtonClick} // Pass handler function
+            updateStateInParent={(count, id) => handleLikeButtonClick(count, id)} // Pass handler function
+            id={upload.id}
+            likeCount={upload.likeCount}
           />
         </div>
       ))}
